@@ -32,7 +32,7 @@ public class CubeSolver {
          * */
 
         //MOVE.U this will rotate top face by 90degree clockwise, as a result shuffle the first row stickers on all faces
-        Cube scrambled_cube = rotate(_cube, SIDE.UP.ordinal(), MOVE.U);
+        Cube scrambled_cube = rotate(_cube, MOVE.U);
 
         //face1 00,01,02 elements  will move to face4 00,01,02
         //face4 00,01,02 elements  will move to face3 00,01,02
@@ -60,12 +60,12 @@ public class CubeSolver {
 
         //Solution to this cube is UPRIME rotation of UP face(WHITE face)
 
-        Cube solved_cube = rotate(scrambled_cube, SIDE.UP.ordinal(), MOVE.UPRIME);
+        Cube solved_cube = rotate(scrambled_cube, MOVE.UPRIME);
 
         return solved_cube;
     }
 
-    public static Cube rotate(Cube cube, int faceName, MOVE move) {
+    public static Cube rotate(Cube cube, MOVE move) {
 
         //MOVE.UPRIME is reverse of U, rotate UP face by 90degree anti clockwise, as a result update the first row stickers on all faces
 
