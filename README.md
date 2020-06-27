@@ -115,6 +115,3 @@ Decoded, that looks like this:
            O B R
 
 
-References
-
-https://en.wikipedia.org/wiki/Optimal_solutions_for_Rubik%27s_Cube 
