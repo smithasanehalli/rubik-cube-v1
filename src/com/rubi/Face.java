@@ -17,6 +17,18 @@ public class Face {
 
     int faceName;
 
+    int[][] stickerPosition;
+
+    public Face(int _faceName, int[][] _stickerPosition) {
+        this.faceName = _faceName;
+        this.stickerPosition = _stickerPosition;
+
+        //considering center Sticker color as the face name
+        if (faceName != stickerPosition[1][1]) {
+            //then it is wrong initialization, throw exception do not initialize Face
+        }
+    }
+
     public int getFaceName() {
         return faceName;
     }
@@ -33,16 +45,10 @@ public class Face {
         this.stickerPosition = stickerPosition;
     }
 
-    int[][] stickerPosition;
 
-    public Face(int _faceName, int[][] _stickerPosition) {
-        this.faceName = _faceName;
-        this.stickerPosition = _stickerPosition;
-
-        //considering center Sticker color as the face name
-        if (faceName != stickerPosition[1][1]) {
-            //then it is wrong initialization, throw exception do not initialize Face
-        }
+    public int getCenterSticker() {
+        return this.stickerPosition[1][1];
     }
+
 }
 

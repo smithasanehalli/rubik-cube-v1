@@ -12,9 +12,9 @@ public class TestCubeApp {
 
 
         //6 faces and 6 colors
-        Face[] face = new Face[6];
+        Face[] faces = new Face[6];
 
-        //each face has 9 small squares or stickers, considering face0 is white face or UP side
+        //each faces has 9 small squares or stickers, considering face0 is white face or UP side
         //represent these 9 stickers in 3*3 matrix of int each value represents color of that square
         //W = 0,
         int[][] face0_stickers = new int[3][3];
@@ -40,7 +40,7 @@ public class TestCubeApp {
         face0_stickers[2][2] = COLOR.WHITE.ordinal();
 
 
-        face[SIDE.UP.ordinal()] = new Face(SIDE.UP.ordinal(), face0_stickers);
+        faces[SIDE.UP.ordinal()] = new Face(SIDE.UP.ordinal(), face0_stickers);
 
         //Similarly initialize all faces
         /*
@@ -55,14 +55,14 @@ public class TestCubeApp {
         int[][] face4_stickers = new int[3][3];//ORANGE
         int[][] face5_stickers = new int[3][3];//YELLOW
 
-        face[SIDE.LEFT.ordinal()] = new Face(SIDE.LEFT.ordinal(), face1_stickers);
-        face[SIDE.FRONT.ordinal()] = new Face(SIDE.FRONT.ordinal(), face2_stickers);
-        face[SIDE.RIGHT.ordinal()] = new Face(SIDE.RIGHT.ordinal(), face3_stickers);
-        face[SIDE.BACK.ordinal()] = new Face(SIDE.BACK.ordinal(), face4_stickers);
-        face[SIDE.DOWN.ordinal()] = new Face(SIDE.DOWN.ordinal(), face5_stickers);
+        faces[SIDE.LEFT.ordinal()] = new Face(SIDE.LEFT.ordinal(), face1_stickers);
+        faces[SIDE.FRONT.ordinal()] = new Face(SIDE.FRONT.ordinal(), face2_stickers);
+        faces[SIDE.RIGHT.ordinal()] = new Face(SIDE.RIGHT.ordinal(), face3_stickers);
+        faces[SIDE.BACK.ordinal()] = new Face(SIDE.BACK.ordinal(), face4_stickers);
+        faces[SIDE.DOWN.ordinal()] = new Face(SIDE.DOWN.ordinal(), face5_stickers);
 
-        //initialize rubix cube
-        Cube cube = new Cube(face);
+        //initialize rubik cube
+        Cube cube = new Cube(faces);
 
         //Print all the values for visual reference
         CubeSolver.printCube(cube);

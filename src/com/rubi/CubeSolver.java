@@ -1,5 +1,9 @@
 package com.rubi;
 
+import javax.print.DocFlavor;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CubeSolver {
     public static void printCube(Cube cube) {
         //TODO
@@ -59,8 +63,9 @@ public class CubeSolver {
     public static Cube solve(Cube scrambled_cube) {
 
         //Solution to this cube is UPRIME rotation of UP face(WHITE face)
-
-        Cube solved_cube = rotate(scrambled_cube, MOVE.UPRIME);
+        //before solving position cube correctly
+        Cube afterRemap = reMapFaces(scrambled_cube);
+        Cube solved_cube = rotate(afterRemap, MOVE.UPRIME);
 
         return solved_cube;
     }
@@ -76,4 +81,27 @@ public class CubeSolver {
 
         return cube;
     }
+//Remap faces to have white face up and RED face as FRONT
+    public static Cube reMapFaces(Cube cube) {
+
+        Face[] faces = cube.getFaceArray();
+        Map<Integer, Face> remap = new HashMap<Integer, Face>();
+
+        for (int i = 0; i < faces.length; i++) {
+            if (faces[i].getFaceName() != faces[i].getCenterSticker()) {
+                //1, Face1, 2, Face2
+                remap.put(faces[i].getCenterSticker(), faces[i]);
+            }
+        }
+        //convert map to array
+        faces[0] = remap.get(0);
+        faces[1] = remap.get(1);
+        faces[2] = remap.get(2);
+        faces[3] = remap.get(3);
+        faces[4] = remap.get(4);
+        faces[5] = remap.get(5);
+
+        return cube;
+    }
+
 }
